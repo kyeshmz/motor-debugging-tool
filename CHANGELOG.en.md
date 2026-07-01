@@ -1,16 +1,85 @@
 ﻿# DMTool Changelog
 
-[Chinese](./CHANGELOG.md) | [English](./CHANGELOG.en.md)
+[中文](./CHANGELOG.md) | [EN](./CHANGELOG.en.md)
 
 #### Version Update Notes
 
-- **[V2.1.6.7] - 2025.5.29**
+- **[V2.1.8.1] - 2026.6.29**
+
+  ##### Main Updates:
+
+
+  - Add motor firmware repository: browse, search, and download motor firmware
+  - Add double-confirmation protection for calibration operations
+
+  ##### Bug Fixes:
+
+  - Fix timestamp sorting in CAN analyzer
+- **[V2.1.8.0] - 2026.6.24**
+
+  ##### Main Updates:
+
+
+  - Add motor latest firmware detection: automatically detect whether motor firmware has updates and pull updates to local
+  - Add some tooltips
+
+  ##### Bug Fixes:
+
+  - Fix abnormal window scaling in motor firmware upgrade dialog
+  - Fix abnormal CAN version reading issue
+
+- **[V2.1.7.1] - 2026.6.16**
+
+  ##### Main Updates:
+
+
+  - Refactored abstract device display logic: for unregistered non-DM series modules, now display device descriptors directly
+  - restored USB2CAN hot-plug functionality
+
+  ##### Bug Fixes:
+
+  - Store CANOpen EDS database in user data directory to fix permission issues causing database access failure
+  - When refreshing serial ports, no longer filter out unopenable devices, and block Bluetooth serial ports to fix UI lag caused by standard serial port refresh on boards with Bluetooth connections
+  - No longer filters out already opened devices (USB2485 devices have long initialization time, which could cause UI lag during hot-plug events)
+  - Fixed crash issue where USB2FDCAN hot-plug stopped working after firmware upgrade
+- **[V2.1.7.0] - 2026.6.12**
+
+  ##### Main Updates:
+
+
+  - Abstracted device layer; unified display as USB2CAN, USB2FDCAN[SINGLE], USB2FDCAN[DUAL], and USB2FDCAN[GSUSB]
+
+  ##### Bug Fixes:
+
+  - Blocked `tty.Bluetooth-Incoming-Port` on macOS
+- **[V2.1.6.9] - 2026.6.8**
+
+  ##### Main Updates:
+
+
+  - Added software configuration registry to remember user settings such as baud rate and language
+  - Upgraded serial port queue sending (supports grouping and mixed ASCII/HEX)
+  - Parameter setting interface supports adjusting CAN ID and Master ID using mouse wheel
+
+  ##### Bug Fixes:
+
+  - Fixed linkage issues between waveform history and mouse wheel zoom/drag
+- **[V2.1.6.8] - 2026.6.3**
+
+  ##### Bug Fixes:
+
+
+  - Fixed an intermittent motor-side calibration failure issue on V3 firmware
+- **[V2.1.6.7] - 2026.5.29**
+
   ##### Major Updates:
+
 
   - Added mouse wheel zoom, mouse drag, point auto-snapping, slope calculation, and history data display features to the waveform control
+- **[V2.1.6.6] - 2026.5.27**
 
-- **[V2.1.6.6] - 2025.5.27**
   ##### Major Updates:
+
 
   - Removed the read ID and set ID buttons from the debug interface
 
@@ -18,14 +87,16 @@
 
   - Fixed waveform control lag and excessive memory usage
   - Fixed missing 125K baud rate setting for USB2CAN modules
+- **[V2.1.6.5] - 2026.5.20**
 
-- **[V2.1.6.5] - 2025.5.20**
   ##### Bug Fixes:
 
-  - Fixed incorrect binding issue between dual USB2CAN modules
 
-- **[V2.1.6.3] - 2025.5.18**
+  - Fixed incorrect binding issue between dual USB2CAN modules
+- **[V2.1.6.3] - 2026.5.18**
+
   ##### Major Updates:
+
 
   - Adapted FDCAN module for opening and upgrading special SLCAN and GSUSB firmware; the bottom-left status bar now displays the special firmware name
 
@@ -33,9 +104,10 @@
 
   - Fixed FDCAN module firmware upgrade issues
   - Fixed abnormal behavior after multiple calibrations of the output axis
+- **[V2.1.6.2] - 2026.5.12**
 
-- **[V2.1.6.2] - 2025.5.12**
   ##### Major Updates:
+
 
   - Optimized the waveform widget
   - Optimized serial-port refresh response speed
@@ -47,19 +119,20 @@
   - Fixed edge-jump issues in the waveform widget
   - Fixed software crashes when opening FDCAN modules with old firmware
   - Fixed the issue where hot-plugging could not correctly identify the FDCAN module in certain cases
-
-- **[V2.1.6.1] - 2025.4.29**
+- **[V2.1.6.1] - 2026.4.29**
 
   ##### Major Updates:
+
 
   - Added prompts for modifying pole pairs / reduction ratio through the serial port
 
   ##### Bug Fixes:
 
   - Fixed the invalid firmware-format issue caused by copying the firmware path
+- **[V2.1.6.0] - 2026.4.17**
 
-- **[V2.1.6.0] - 2025.4.17**
   ##### Major Updates:
+
 
   - Optimized the USB2CAN module user experience
   - Optimized the waveform widget
@@ -77,23 +150,23 @@
   - Fixed the custom baud-rate configuration logic
   - Fixed serial output text to use a monospace font so serial print information is displayed correctly
   - Fixed the issue where CAN communication with the motor could not work at 3.2M when using FDCAN module firmware 1007
-
 - **[V2.1.5.3] - 2025.12.15**
+
   ##### Bug Fixes:
 
-  - Fixed incorrect error-frame counting
 
+  - Fixed incorrect error-frame counting
 - **[v2.1.5.2] - 2025.12.12**
 
-   ##### Major Updates
+  ##### Major Updates
 
-   - Adapted to new firmware for the `usb2canfd_dual` module and the single-channel `usb2fdcan` module (single-channel firmware requires v1.0.0.4 or later), and added error-frame counting
 
-   ##### Bug Fixes:
+  - Adapted to new firmware for the `usb2canfd_dual` module and the single-channel `usb2fdcan` module (single-channel firmware requires v1.0.0.4 or later), and added error-frame counting
 
-   - Fixed incorrect index counting in the CAN analyzer
-   - Fixed incorrect display of feedback-frame error codes (for example, 0x08 displayed as 0xf8)
+  ##### Bug Fixes:
 
+  - Fixed incorrect index counting in the CAN analyzer
+  - Fixed incorrect display of feedback-frame error codes (for example, 0x08 displayed as 0xf8)
 - **[v2.1.4.6] - 2025.11.20**
 
   ##### Major Updates

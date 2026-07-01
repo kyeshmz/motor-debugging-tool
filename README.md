@@ -1,69 +1,64 @@
-# DMTool
+# DMTool (USB2CANFD)
 
-[English](./README.md) | [Chinese](./README.zh.md)
+[中文](./README.md) | [EN](./README.en.md)
 
-DMTool is the DAMIAO motor debugging and configuration application. This repository publishes the packaged desktop binaries and the matching user manual for direct distribution.
+This directory only keeps the DMTool V2 host software for USB2CANFD / USB2CANFD-Dual. USB2CAN host software, open protocol files, mechanical files, and usage documents are maintained in the USB2CAN module directory instead of being duplicated here.
+
+USB2CAN materials: `模块/通信模块/USB2CAN`
 
 ## Contents
 
-The repository root currently includes these runnable assets:
-
-- `Windows/x86_64/DMTool 2.1.6.7.exe`
-- `Linux/x86_64/DMTool-v2.1.6.7-x86_64.AppImage`
-- `Linux/x86_64/arch_lib_install.sh`
-- `MacOS/x86_64/DMTool-v2.1.6.7-x86_64.app`
-- `MacOS/arm64/DMTool-v2.1.6.7-arm64.app`
-- `DMTool-Host-Software-User-Manual.pdf`
+| Platform | File | Description |
+| --- | --- | --- |
+| Windows x86_64 | `Windows/x86_64/DMTool 2.1.8.1.exe` | Windows executable |
+| Linux x86_64 | `Linux/x86_64/DMTool-v2.1.8.1-x86_64.AppImage` | Linux x86_64 AppImage |
+| Linux x86_64 | `Linux/x86_64/arch_lib_install.sh` | Arch Linux dependency helper |
+| Linux arm64 | `Linux/arm64/DMTool-v2.1.8.1-arm64/start.sh` | Linux arm64 launcher |
+| MacOS x86_64 | `MacOS/x86_64/DMTool-v2.1.8.1-x86_64.app.zip` | macOS Intel package |
+| MacOS arm64 | `MacOS/arm64/DMTool-v2.1.8.1-arm64.app.zip` | macOS Apple Silicon package |
+| Manual | `DMTool上位机软件说明书.pdf` | DMTool user manual |
 
 ## Windows
 
-Use `Windows/x86_64/DMTool 2.1.6.7.exe`.
+1. Open `Windows/x86_64/`
+2. Double-click `DMTool 2.1.8.1.exe`
+3. If Windows SmartScreen blocks the app on first launch, choose "More info" and continue
 
-1. Open `Windows/x86_64/`.
-2. Double-click `DMTool 2.1.6.7.exe`.
-3. If Windows SmartScreen blocks the app on first launch, choose "More info" and continue.
-
-Only the `x86_64` Windows package is provided in this repository. For driver, permission, or serial-port access issues, check `DMTool-Host-Software-User-Manual.pdf` first.
-
-## Linux
-
-Use `Linux/x86_64/DMTool-v2.1.6.7-x86_64.AppImage`.
+## Linux x86_64
 
 ```bash
 cd Linux/x86_64
-chmod +x DMTool-v2.1.6.7-x86_64.AppImage
-./DMTool-v2.1.6.7-x86_64.AppImage
+chmod +x DMTool-v2.1.8.1-x86_64.AppImage
+./DMTool-v2.1.8.1-x86_64.AppImage
 ```
 
-If you are on Arch Linux or a compatible distribution and runtime libraries are missing, run the helper script first:
+On Arch Linux or compatible distributions, install missing dependencies first if needed:
 
 ```bash
-cd Linux/x86_64
 chmod +x arch_lib_install.sh
 ./arch_lib_install.sh
 ```
 
-If the app cannot access the USB/CAN device, inspect the device with `lsusb` and configure `udev` rules for your distribution.
+## Linux arm64
 
-## macOS
+```bash
+cd Linux/arm64/DMTool-v2.1.8.1-arm64
+chmod +x start.sh
+./start.sh
+```
 
-- Intel Macs: `MacOS/x86_64/DMTool-v2.1.6.7-x86_64.app`
-- Apple Silicon Macs: `MacOS/arm64/DMTool-v2.1.6.7-arm64.app`
+See [Linux/arm64/README.en.md](./Linux/arm64/README.en.md) for more details.
 
-Open the directory that matches your CPU architecture and double-click the `.app`. If Gatekeeper blocks the app, allow it from "System Settings -> Privacy & Security".
+## MacOS
 
-## Documentation
+1. Open `MacOS/x86_64/` or `MacOS/arm64/` according to your chip architecture
+2. Unzip the matching `.app.zip`
+3. Run DMTool
 
-- User manual: [`DMTool-Host-Software-User-Manual.pdf`](./DMTool-Host-Software-User-Manual.pdf)
-- Release history: [`CHANGELOG.en.md`](./CHANGELOG.en.md)
-- Chinese README: [`README.zh.md`](./README.zh.md)
+If macOS blocks the app, allow it in "System Settings -> Privacy & Security".
 
-## Version
+## Maintenance Rules
 
-- DMTool version in this repository: `2.1.6.7`
-
-## Copyright and Third-Party Licenses
-
-DMTool is proprietary software owned by DAMIAO Technology Co., Ltd.
-
-The packaged application uses third-party open-source libraries including Qt, Qwt, and libusb through dynamic linking. Users may obtain, modify, and redistribute the source code of those third-party components according to their respective licenses.
+- This directory only maintains the DMTool V2 host software for USB2CANFD / USB2CANFD-Dual.
+- USB2CAN V1 host software and USB2CAN-specific materials are maintained in the USB2CAN module directory.
+- When a version is updated, update `README.md`, `README.en.md`, and `CHANGELOG.md` together.
