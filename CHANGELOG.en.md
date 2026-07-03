@@ -4,6 +4,19 @@
 
 #### Version Update Notes
 
+- **[V2.1.8.2] - 2026.7.3**
+
+  ##### Main Updates:
+
+
+  - Add CAN-based calibration selection for special motors
+
+  ##### Bug Fixes:
+
+  - Fix issue where serial port cannot correctly print Latin characters
+  - Fix device open failure issue
+  - Fix data slider mapping error in debug interface
+
 - **[V2.1.8.1] - 2026.6.29**
 
   ##### Main Updates:
